@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- 方式1: 引用外部已经声明的bean-->
+    <!--<bean id="clazz" class="com.liuyang.spring.pojo.Clazz">-->
+    <!--    <property name="clazzId" value="001"/>-->
+    <!--    <property name="clazzName" value="三年级二班"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="student" class="com.liuyang.spring.pojo.Student">-->
+    <!--    <property name="name" value="刘洋"/>-->
+    <!--    <property name="age" value="12"/>-->
+    <!--    <property name="gender" value="男"/>-->
+    <!--    <property name="clazz" ref="clazz"/>-->
+    <!--</bean>-->
+
+    <!--方式2: 内部bean-->
+    <!--<bean id="student" class="com.liuyang.spring.pojo.Student">-->
+    <!--    <property name="name" value="刘洋"/>-->
+    <!--    <property name="age" value="12"/>-->
+    <!--    <property name="gender" value="男"/>-->
+    <!--    <property name="clazz">-->
+    <!--        <bean id="clazz" class="com.liuyang.spring.pojo.Clazz">-->
+    <!--            <property name="clazzId" value="001"/>-->
+    <!--            <property name="clazzName" value="三年级二班"/>-->
+    <!--        </bean>-->
+    <!--    </property>-->
+    <!--</bean>-->
+
+    <!--方式3: 级联属性赋值-->
+    <bean id="clazz" class="com.liuyang.spring.pojo.Clazz"/>
+    <bean id="student" class="com.liuyang.spring.pojo.Student">
+        <property name="name" value="刘洋"/>
+        <property name="age" value="12"/>
+        <property name="gender" value="男"/>
+        <property name="clazz" ref="clazz"/>
+        <property name="clazz.clazzId" value="001"/>
+        <property name="clazz.clazzName" value="三年级二班"/>
+    </bean>
+
+
+
+
+
+
+
+</beans>

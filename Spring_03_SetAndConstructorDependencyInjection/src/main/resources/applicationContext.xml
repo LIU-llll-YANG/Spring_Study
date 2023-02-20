@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--set注入-->
+    <bean id="student1" class="com.liuyang.spring.pojo.Student">
+        <property name="name" value="刘洋"/>
+        <property name="age" value="15"/>
+        <property name="gender" value="男"/>
+    </bean>
+    <bean id="student2" class="com.liuyang.spring.pojo.Student">
+        <constructor-arg value="刘洋"/>
+        <constructor-arg value="15"/>
+        <constructor-arg value="男"/>
+    </bean>
+</beans>
