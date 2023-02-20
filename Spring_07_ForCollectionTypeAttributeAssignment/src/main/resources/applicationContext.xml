@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+    <!--为list集合属性进行赋值-->
+    <!--<bean id="clazz" class="com.liuyang.spring.pojo.Clazz">-->
+    <!--    <property name="clazzId" value="001"/>-->
+    <!--    <property name="clazzName" value="三年级二班"/>-->
+    <!--    <property name="students">-->
+    <!--        <list>-->
+    <!--            <ref bean="studentOne"/>-->
+    <!--            <ref bean="studentTwo"/>-->
+    <!--            <ref bean="studentThree"/>-->
+    <!--        </list>-->
+    <!--    </property>-->
+    <!--</bean>-->
+
+    <!--<bean id="studentOne" class="com.liuyang.spring.pojo.Student">-->
+    <!--    <property name="name" value="刘洋"/>-->
+    <!--    <property name="age" value="12"/>-->
+    <!--    <property name="gender" value="男"/>-->
+    <!--</bean>-->
+    <!--<bean id="studentTwo" class="com.liuyang.spring.pojo.Student">-->
+    <!--    <property name="name" value="刘能"/>-->
+    <!--    <property name="age" value="12"/>-->
+    <!--    <property name="gender" value="男"/>-->
+    <!--</bean>-->
+    <!--<bean id="studentThree" class="com.liuyang.spring.pojo.Student">-->
+    <!--    <property name="name" value="谢广坤"/>-->
+    <!--    <property name="age" value="12"/>-->
+    <!--    <property name="gender" value="男"/>-->
+    <!--</bean>-->
+
+    <bean id="teacherOne" class="com.liuyang.spring.pojo.Teacher">
+        <property name="teacherId" value="10001"/>
+        <property name="teacherName" value="苍老师"/>
+    </bean>
+    <bean id="teacherTwo" class="com.liuyang.spring.pojo.Teacher">
+        <property name="teacherId" value="10002"/>
+        <property name="teacherName" value="小泽老师"/>
+    </bean>
+
+
+
+    <util:map id="map" key-type="java.lang.String" value-type="com.liuyang.spring.pojo.Teacher">
+        <entry>
+            <key>
+                <value>10001</value>
+            </key>
+            <ref bean="teacherOne"/>
+        </entry>
+        <entry>
+            <key>
+                <value>10002</value>
+            </key>
+            <ref bean="teacherTwo"/>
+        </entry>
+    </util:map>
+
+    <!--为map集合进行赋值-->
+    <bean id="student" class="com.liuyang.spring.pojo.Student">
+        <property name="name" value="刘洋"/>
+        <property name="age" value="12"/>
+        <property name="gender" value="男"/>
+        <property name="teacherMap" ref="map"/>
+    </bean>
+
+</beans>
